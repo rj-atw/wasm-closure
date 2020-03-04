@@ -30,7 +30,7 @@ fn main() -> error::Result<()> {
     let wasm_ptr = malloc.call(input.len() as u32 * 4)?;
    unsafe {
        let wasm_array = wasm_ptr.deref_mut(instance.context().memory(0),0,input.len() as u32).unwrap();
-       for idx in 0..input.len()-1 {
+       for idx in 0..input.len() {
          wasm_array[idx].set(input[idx]);
        }
     //  let ( _, view ) =
@@ -40,7 +40,7 @@ fn main() -> error::Result<()> {
 
 
     let add: Func<(WasmPtr<u32,Array>, u32), u32> =  instance.func("add")?;
-    let result = add.call(wasm_ptr, 4)?;
+    let result = add.call(wasm_ptr, input.len() as u32)?;
 
 
     // Log the new value
