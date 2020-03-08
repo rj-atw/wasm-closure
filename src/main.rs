@@ -39,8 +39,8 @@ fn main() -> error::Result<()> {
     }
 
 
-    let add: Func<(WasmPtr<u32,Array>, u32), u32> =  instance.func("add")?;
-    let result = add.call(wasm_ptr, input.len() as u32)?;
+    let reduce: Func<(WasmPtr<u32,Array>, u32), u32> =  instance.func("reduce")?;
+    let result = reduce.call(wasm_ptr, input.len() as u32)?;
 
 
     // Log the new value
