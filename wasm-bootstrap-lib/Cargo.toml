@@ -6,12 +6,9 @@ edition = "2018"
 
 [dependencies]
 # Add the wasmer-runtime as a dependency
-#wasmer-runtime = "0.16.2"
-wasmer-runtime = { path = "../../wasmer/lib/runtime" }
-#{ git = "https://github.com/wasmerio/wasmer.git#lib/llvm-backend"}
+wasmer-runtime = { git = "https://github.com/rj-atw/wasmer.git"}
 jni = "0.16.0"
-wasmer-llvm-backend = { path = "/mnt/c/Users/start/code/wasmer/lib/llvm-backend/" }
-#{ git = "https://github.com/wasmerio/wasmer.git#lib/llvm-backend"}
+wasmer-llvm-backend = { git = "https://github.com/rj-atw/wasmer.git"}
 
 [lib]
 name = "wasm_bootstrap"
